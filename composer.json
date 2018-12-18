@@ -1,5 +1,5 @@
 {
-    "name": "drupal/service_ex",
+    "name": "drupal_ex/service_ex",
     "type": "library",
     "description": "Service_ex for Drupal 8",
     "keywords": [],
