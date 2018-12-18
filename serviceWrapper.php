@@ -2,7 +2,7 @@
 
 namespace drupal_ex\service_ex;
 use drupal_ex\service_ex\serviceEx;
-class serviceWrapper {
+class serviceWrapperEx {
 
   public static function lastestCompanyData($cid) {
     $db_select = db_select('data_log_sgf', 'd')
