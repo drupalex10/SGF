@@ -18,7 +18,8 @@
   "autoload": {
     "classmap": [
       "serviceClass.php",
-      "trackingWrapper.php"
+      "trackingWrapper.php",
+      "serviceWrapper.php"
     ]
   }
 }
