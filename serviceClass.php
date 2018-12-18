@@ -2,6 +2,9 @@
 
 namespace drupal_ex\service_ex;
 
+use Drupal\taxonomy\Entity\Term;
+use \Drupal\Core\Url;
+
 class serviceEx {
 
   public static function sgf_track_insert($node, $action_type = 'add') {
@@ -211,6 +214,7 @@ class serviceEx {
             ->fetchField();
     return $db_select;
   }
+
 }
 
 ?>
