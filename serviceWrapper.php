@@ -88,7 +88,7 @@ class serviceWrapperEx {
       $field_service_date = $paragraphs_temp->get('field_service_date')->value;
       $node_arr['field_service_paragraphs'][$field_service_paragraphs['target_id']] = [
           'field_application_status' => serviceEx::termbyId($paragraphs_temp->get('field_application_status')->getValue()),
-          'field_company_additional_service' => TrackingWrapper::nodebyId($field_company_additional_service['0']['target_id']),
+          'field_company_additional_service' => serviceEx::nodebyId($field_company_additional_service['0']['target_id']),
           'field_service_date' => $field_service_date,
           'field_service_status' => serviceEx::termbyId($paragraphs_temp->get('field_service_status')->getValue())
       ];
