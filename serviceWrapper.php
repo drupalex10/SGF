@@ -1,7 +1,9 @@
 <?php
 
 namespace drupal_ex\service_ex;
+
 use drupal_ex\service_ex\serviceEx;
+
 class serviceWrapperEx {
 
   public static function lastestCompanyData($cid) {
@@ -28,7 +30,6 @@ class serviceWrapperEx {
         'field_alternative_company_name' => $node->get('field_alternative_company_name')->value,
         'field_alternative_company_type' => serviceEx::termbyId($node->get('field_alternative_company_type')->getValue()),
         'field_application_id' => $node->get('field_application_id')->value,
-        'field_company_document' => $node->get('field_company_document')->getValue(),
         'field_company_type' => serviceEx::termbyId($node->get('field_company_type')->getValue()),
         'field_financial_year_end' => $node->get('field_financial_year_end')->value,
         'field_no_director' => $node->get('field_no_director')->value,
@@ -90,6 +91,15 @@ class serviceWrapperEx {
           'field_company_additional_service' => TrackingWrapper::nodebyId($field_company_additional_service['0']['target_id']),
           'field_service_date' => $field_service_date,
           'field_service_status' => serviceEx::termbyId($paragraphs_temp->get('field_service_status')->getValue())
+      ];
+    }
+    foreach ($node->get('field_company_document')->getValue() as $field_company_document) {
+      $file_storage = \Drupal::entityTypeManager()->getStorage('file');
+      $file = $file_storage->load($field_company_document['target_id']);
+      $node_arr['field_company_document'][$field_company_document['target_id']] = [
+          'filename' => $file->filename->value,
+          'url' => file_url_transform_relative(file_create_url($file->getFileUri())),
+          'filemime' => $file->filemime->value
       ];
     }
     return $node_arr;
